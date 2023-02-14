@@ -1,40 +1,40 @@
 from word_ladder import _adjacent,verify_word_ladder,word_ladder
 import random
 
-def test__word_ladder_1():
+def test___adjacent_1():
     assert not _adjacent('stone','money')
 
-def test__word_ladder_1b():
+def test___adjacent_1b():
     assert not _adjacent('money','stone')
 
-def test__word_ladder_2():
+def test___adjacent_2():
     assert not _adjacent('stone','stone1')
 
-def test__word_ladder_3():
+def test___adjacent_3():
     assert not _adjacent('stone1','stone')
 
-def test__word_ladder_4():
+def test___adjacent_4():
     assert _adjacent('stone','stony')
 
-def test__word_ladder_4v():
+def test___adjacent_4v():
     assert _adjacent('stony','stone')
 
-def test__word_ladder_5():
+def test___adjacent_5():
     assert _adjacent('stone','shone')
 
-def test__word_ladder_5b():
+def test___adjacent_5b():
     assert _adjacent('shone','stone')
 
-def test__word_ladder_6():
+def test___adjacent_6():
     assert not _adjacent('shone','shone')
 
-def test__word_ladder_7():
+def test___adjacent_7():
     assert not _adjacent('','shone')
 
-def test__word_ladder_7b():
+def test___adjacent_7b():
     assert not _adjacent('shone','')
 
-def test__word_ladder_fuzz():
+def test___adjacent_fuzz():
     with open('words5.dict') as f:
         words = f.readlines()
         words = list(set([ word.strip() for word in words ]))
