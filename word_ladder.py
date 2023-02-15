@@ -4,9 +4,9 @@ from collections import deque
 
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
-    with open(dictionary_file, 'r') as f:
-        words = [line.strip() for line in f]
-    if end_word not in words:
+    with open(dictionary_file, 'r') as afile:
+        words_list= [line.strip() for line in afile]
+    if end_word not in words_list:
         return None
     if start_word == end_word:
         return [start_word]
@@ -14,13 +14,13 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     while ladder:
         path = ladder.popleft()
         last_word = path[-1]
-        for word in words[:]:
+        for word in wordlist[:]:
             if word not in path and _adjacent(last_word, word):
                 if word == end_word:
                     return path + [end_word]
                 else:
                     ladder.append(copy.deepcopy(path) + [word])
-                    words.remove(word)
+                    words_list.remove(word)
     return None
 
 
