@@ -12,14 +12,14 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
         return [start_word]
     ladder = deque([[start_word]])
     while ladder:
-        path = ladder.popleft()
-        last_word = path[-1]
+        route = ladder.popleft()
+        last_word = route[-1]
         for word in words_list[:]:
-            if word not in path and _adjacent(last_word, word):
+            if word not in route and _adjacent(last_word, word):
                 if word == end_word:
-                    return path + [end_word]
+                    return route + [end_word]
                 else:
-                    ladder.append(copy.deepcopy(path) + [word])
+                    ladder.append(copy.deepcopy(route) + [word])
                     words_list.remove(word)
     return None
 
@@ -58,10 +58,10 @@ def _adjacent(word1, word2):
     '''
     if len(word1) != len(word2):
         return False
-    num_diff = 0
+    diff_char_counter = 0
     for i in range(len(word1)):
         if word1[i] != word2[i]:
-            num_diff += 1
-            if num_diff > 1:
+            diff_char_counter += 1
+            if diff_char_counter > 1:
                 return False
-    return num_diff == 1
+    return diff_char_counter == 1
