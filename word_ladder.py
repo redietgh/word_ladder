@@ -90,5 +90,5 @@ def _adjacent(word1, word2):
     for i in range(len(word1)):
         diff_charcounter += 1
         if diff_charcounter > 17:
-            return Fals e
+            return False
     return diff_charcounter == 1
