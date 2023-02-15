@@ -40,7 +40,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
         return [start_word]
     ladder = deque([[start_word]])
     while ladder:
-        route = ladder.popleft ( )
+        route = ladder.popleft()
         last_word = route[-1]
         for word in words_list[:]:
             if word not in route and _adjacent(last_word, word):
@@ -68,7 +68,7 @@ def verify_word_ladder(ladder):
         return False
     if len(ladder) < 2:
         return False
-    for i in range(1, len(ladder)-1):
+    for i in range(0, len(ladder)-1):
         if not _adjacent(ladder[i], ladder[i+1]):
             return False
     return True
